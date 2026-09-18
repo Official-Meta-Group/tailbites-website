@@ -1,0 +1,166 @@
+/* Order Dialog — Tailbite's. */
+
+.order-inline {
+    display: inline;
+    text-align: inherit;
+}
+
+.order-dialog {
+    margin: auto;
+    padding: 0;
+    width: min(580px, calc(100% - 32px));
+    max-width: none;
+    /* Fallback for browsers without dynamic viewport units. */
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+    overflow: auto;
+    overscroll-behavior: contain;
+    border: 1px solid rgba(255, 198, 0, .3);
+    border-radius: var(--radius-lg);
+    background: var(--navy-dark);
+    color: var(--cream-2);
+    box-shadow: 0 28px 100px rgba(0, 0, 0, .45);
+}
+
+.order-dialog::backdrop {
+    background: rgba(2, 28, 37, .78);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+}
+
+.order-dialog[open] {
+    animation: order-enter .24s var(--ease) both;
+}
+
+.order-panel {
+    position: relative;
+    padding: 48px 36px 36px;
+    background: radial-gradient(ellipse at top left, rgba(255, 139, 0, .12), transparent 65%);
+}
+
+.order-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(245, 237, 223, .25);
+    border-radius: 50%;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.order-close:hover {
+    background: var(--navy-mid);
+}
+
+.order-eyebrow {
+    padding-right: 24px;
+    margin-bottom: 12px;
+    color: var(--yellow);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .14em;
+}
+
+.order-dialog h2 {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 8vw, 58px);
+    font-weight: 400;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.order-dialog h2 span {
+    color: var(--orange);
+}
+
+#orderDescription {
+    margin: 16px 0 28px;
+    color: var(--cream);
+}
+
+.order-choices {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.order-city {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 22px;
+    border-radius: var(--radius);
+    background: var(--orange);
+    color: var(--navy-dark);
+    transition: background .2s, transform .2s;
+}
+
+.order-city:hover {
+    background: var(--yellow);
+    transform: translateY(-3px);
+}
+
+.order-city:focus-visible {
+    outline-color: var(--cream-2);
+}
+
+.order-city-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-display);
+    font-size: 28px;
+    text-transform: uppercase;
+}
+
+.order-city-place {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+@keyframes order-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .order-panel {
+        padding: 60px 22px 24px;
+    }
+
+    .order-choices {
+        grid-template-columns: 1fr;
+    }
+
+    .order-city {
+        padding: 18px 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .order-dialog[open] {
+        animation: none;
+    }
+
+    .order-city {
+        transition: none;
+    }
+
+    .order-city:hover {
+        transform: none;
+    }
+}

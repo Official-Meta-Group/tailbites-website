@@ -1,0 +1,31 @@
+/* Marquee — Tailbite's. */
+
+.marquee {
+    overflow: hidden;
+    background: var(--orange);
+    color: var(--navy-dark);
+    padding: 13px 0;
+    border-block: 3px solid var(--navy);
+}
+
+.marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    width: max-content;
+    animation: scroll 34s linear infinite;
+    font-family: var(--font-display);
+    font-size: 19px;
+    letter-spacing: .07em;
+    white-space: nowrap;
+}
+
+.marquee .dot {
+    font-size: 13px;
+}
+
+@keyframes scroll {
+    to {
+        transform: translateX(-50%);
+    }
+}

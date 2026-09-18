@@ -1,0 +1,52 @@
+TAILBITES — PRE-DEPLOYMENT CHECKS
+
+PASS: JavaScript syntax, HTML IDs/internal links, image alt text, new-tab opener protection.
+PASS: Per-page canonical/social metadata; 404 noindex; JSON-LD parsing and CSP hashes.
+PASS: Static homepage cascade comparison across 64 viewport/motion/UI-state scenarios (intentional improvements excluded).
+PASS: CSS structural parsing and local stylesheet/font references; no CSS import chains.
+PASS: Four real canonical URLs in XML sitemap, no fragment URLs or 404.
+PASS: Initial promo cards present in HTML; menu filtering initialization retained.
+PASS: Favicon PNG signatures and declared dimensions.
+PASS: No tracking scripts, cookie writes or localStorage in supplied JS.
+
+NOT MEASURED: live Core Web Vitals, full browser layout/keyboard tests, hosting behaviour.
+Apache execution was denied by the local environment. Test .htaccess on staging.
+
+Original image assets that must remain in your website:
+assets/products/Burgers/CajunBurger.png
+assets/products/Burgers/CoconutBurger.png
+assets/products/Burgers/HandmadeCrispyBurger.png
+assets/products/Burgers/TastyBurger.png
+assets/products/Drinks/Cola.png
+assets/products/Drinks/ColaZero.png
+assets/products/Drinks/Fanta.png
+assets/products/Drinks/Sprite.png
+assets/products/Drinks/WaterBubbles.png
+assets/products/Drinks/WaterStill.png
+assets/products/Sauces/BiteSauce.png
+assets/products/Sauces/Caramel.png
+assets/products/Sauces/Ketšup.png
+assets/products/Sauces/Kurgimajo.png
+assets/products/Sauces/Maasikamoos.png
+assets/products/Sauces/Sriracha.png
+assets/products/Sauces/SrirachaMajo.png
+assets/products/Sauces/SweetChilly.png
+assets/products/Sauces/Šokolaad.png
+assets/products/Shrimps/CajunShrimps.png
+assets/products/Shrimps/ClassicCrisp.png
+assets/products/Shrimps/CoconutShrimps.png
+assets/products/Shrimps/GarlicChillyShrimps.png
+assets/products/Shrimps/HandmadeCrispyL.png
+assets/products/Shrimps/TeriyakiShrimps.png
+assets/products/Sides/Cheeseballs.png
+assets/products/Sides/Chips.png
+assets/products/Sides/Churros.png
+assets/products/Sides/Fries.png
+assets/products/Sides/Salat.png
+assets/products/Sides/Wakame.png
+assets/products/Tacos/CajunTaco.png
+assets/products/Tacos/CoconutTaco.png
+assets/products/Tacos/TailbitesTaco.png
+assets/promotions/september-bites.png
+assets/promotions/september.png
+assets/site/logo.png

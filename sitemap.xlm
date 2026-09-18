@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://tailbites.eu/</loc>
+    <lastmod>2026-09-19</lastmod>
+    <image:image>
+      <image:loc>https://tailbites.eu/assets/promotions/september.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tailbites.eu/assets/promotions/september-bites.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tailbites.eu/assets/products/Tacos/TailbitesTaco.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tailbites.eu/assets/products/Tacos/CajunTaco.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tailbites.eu/assets/products/Tacos/CoconutTaco.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://tailbites.eu/assets/products/Sides/Churros.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://tailbites.eu/kasutustingimused.html</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+  <url>
+    <loc>https://tailbites.eu/privaatsuspoliitika.html</loc>
+    <lastmod>2026-09-19</lastmod>
+  </url>
+</urlset>

@@ -1,0 +1,27 @@
+/* Floating Ui — Tailbite's. */
+
+.to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 90;
+    display: grid;
+    place-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--navy-dark);
+    font-size: 19px;
+    box-shadow: var(--shadow-hard);
+    opacity: 0;
+    transform: translateY(18px);
+    pointer-events: none;
+    transition: opacity .3s var(--ease), transform .3s var(--ease);
+}
+
+.to-top.show {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}

@@ -65,6 +65,7 @@
         burger.setAttribute("aria-expanded", String(open));
         burger.setAttribute("aria-label", open ? "Sulge menüü" : "Ava menüü");
         mobileMenu.classList.toggle("open", open);
+        mobileMenu.inert = !open;
         backdrop.classList.toggle("show", open);
         document.body.classList.toggle("no-scroll", open);
     }
@@ -329,7 +330,7 @@
                 (item, index) => `
         <article class="menu-card" style="animation-delay:${index * 45}ms">
           ${item.tag ? `<span class="menu-tagpill">${item.tag}</span>` : ""}
-          <div class="menu-image">${item.image ? `<img src="${item.image}" alt="${item.name}" loading="lazy">` : ""}</div>
+          <div class="menu-image">${item.image ? `<img src="/${item.image}" alt="${item.name}" loading="lazy" decoding="async" width="800" height="500">` : ""}</div>
           <div class="menu-card-body">
             <h3>${item.name}</h3>
             <p>${item.desc}</p>
@@ -350,10 +351,23 @@
             tabs.forEach((t) => {
                 t.classList.remove("is-active");
                 t.setAttribute("aria-selected", "false");
+                t.tabIndex = -1;
             });
             tab.classList.add("is-active");
             tab.setAttribute("aria-selected", "true");
+            tab.tabIndex = 0;
+            menuGrid.setAttribute("aria-labelledby", tab.id);
             renderMenu(tab.dataset.filter);
+        });
+    });
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener("keydown", (event) => {
+            const keys = { ArrowRight: (index + 1) % tabs.length, ArrowLeft: (index - 1 + tabs.length) % tabs.length, Home: 0, End: tabs.length - 1 };
+            if (!(event.key in keys)) return;
+            event.preventDefault();
+            tabs[keys[event.key]].focus();
+            tabs[keys[event.key]].click();
         });
     });
 
@@ -381,6 +395,10 @@
             }
         });
     });
+
+    window.addEventListener("resize", () => {
+        $$(".faq-item.open .faq-a").forEach((panel) => { panel.style.maxHeight = panel.scrollHeight + "px"; });
+    }, { passive: true });
 
     /* ============================ OPEN / CLOSED STATUS ============================ */
 
@@ -431,38 +449,4 @@
 
     $("#year").textContent = new Date().getFullYear();
 
-    /* ============================ COOKIE BAR ============================ */
-
-    const cookie = $("#cookie");
-    const STORAGE_KEY = "tailbites-cookie-choice";
-
-    function hasChoice() {
-        try {
-            return !!localStorage.getItem(STORAGE_KEY);
-        } catch (err) {
-            return true;
-        }
-    }
-
-    function saveChoice(value) {
-        try {
-            localStorage.setItem(STORAGE_KEY, value);
-        } catch (err) {
-            /* storage blocked – ignore */
-        }
-    }
-
-    if (!hasChoice()) {
-        cookie.hidden = false;
-        setTimeout(() => cookie.classList.add("show"), 900);
-    }
-
-    function closeCookie(value) {
-        saveChoice(value);
-        cookie.classList.remove("show");
-        setTimeout(() => { cookie.hidden = true; }, 500);
-    }
-
-    $("#cookieAccept").addEventListener("click", () => closeCookie("all"));
-    $("#cookieDecline").addEventListener("click", () => closeCookie("necessary"));
 })();

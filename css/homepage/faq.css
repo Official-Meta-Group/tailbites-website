@@ -1,0 +1,99 @@
+/* Faq — Tailbite's. */
+
+.faq-q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    width: 100%;
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: clamp(17px, 2.2vw, 23px);
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    transition: color .2s var(--ease);
+    padding: 20px 22px;
+    color: var(--cream);
+}
+
+.faq-q:hover {
+    color: var(--orange);
+}
+
+.faq-icon {
+    position: relative;
+    flex: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid rgba(4, 51, 62, .2);
+    transition: transform .3s var(--ease), background-color .3s var(--ease), border-color .3s var(--ease);
+    border-color: rgba(245, 237, 223, .28);
+}
+
+.faq-icon::before {
+    content: "";
+    position: absolute;
+    inset: 50% 8px auto 8px;
+    height: 2px;
+    background: currentColor;
+    transform: translateY(-1px);
+}
+
+.faq-icon::after {
+    content: "";
+    position: absolute;
+    inset: 50% 8px auto 8px;
+    height: 2px;
+    background: currentColor;
+    transform: translateY(-1px) rotate(90deg);
+    transition: transform .3s var(--ease);
+}
+
+.faq-item.open .faq-icon {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: var(--navy-dark);
+}
+
+.faq-item.open .faq-icon::after {
+    transform: translateY(-1px) rotate(0deg);
+}
+
+.faq-a {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .38s var(--ease);
+}
+
+#faq {
+    background: radial-gradient(80% 100% at 0% 0%, var(--navy-soft), transparent 62%), var(--navy-dark);
+    color: var(--cream);
+}
+
+#faq .section-title span {
+    color: var(--yellow);
+}
+
+.faq {
+    display: grid;
+    gap: 10px;
+}
+
+.faq-item {
+    overflow: hidden;
+    border: 1px solid rgba(245, 237, 223, .17);
+    border-radius: var(--radius);
+    background: rgba(245, 237, 223, .09);
+    transition: background-color .3s var(--ease), border-color .3s var(--ease);
+}
+
+.faq-item.open {
+    background: rgba(245, 237, 223, .15);
+    border-color: rgba(255, 198, 0, .44);
+}
+
+.faq-a p {
+    padding: 0 64px 22px 22px;
+    color: rgba(245, 237, 223, .75);
+}
